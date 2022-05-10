@@ -12,7 +12,7 @@ module.exports = {
     assetsPublicPath: '/',
     proxyTable: {
       '/api': {
-        target: 'https://ec2-54-173-30-195.compute-1.amazonaws.com:3000/',
+        target: 'https://54.173.30.195:3000/',
         changeOrigin: true,
         pathRewirte: {
           '^/api': '/api'
@@ -21,7 +21,7 @@ module.exports = {
     },
 
     // Various Dev Server settings
-    host: 'ec2-54-173-30-195.compute-1.amazonaws.com', // can be overwritten by process.env.HOST
+    host: '54.173.30.195', // can be overwritten by process.env.HOST
     port: 8080, // can be overwritten by process.env.PORT, if port is in use, a free one will be determined
     autoOpenBrowser: false,
     errorOverlay: true,
