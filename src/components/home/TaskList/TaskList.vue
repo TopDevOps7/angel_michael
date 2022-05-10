@@ -777,7 +777,7 @@ export default {
                         headers: { 'Content-Type': 'application/json' },
                         body: JSON.stringify({ willEditDataId: self.accId })
                     };
-                    axios.post('http://localhost:8080/api/task/setWillEditData', requestOptions).then(function (response) {
+                    axios.post('/api/task/setWillEditData', requestOptions).then(function (response) {
                         console.log(response.data);
                         $("#editTaskTitleId" + self.accId).val(response.data[0].title);
                         $("#editDescId" + self.accId).val(response.data[0].description);
@@ -852,7 +852,7 @@ export default {
                 body: JSON.stringify({ id: this.accId, title: this.task.title, description: this.task.description, tag: this.task.tag })
             };
             this.submitted = true;
-            axios.post('http://localhost:8080/api/task/editTask', requestOptions).then(function (response) {            
+            axios.post('/api/task/editTask', requestOptions).then(function (response) {            
                     console.log(response);
                     // closeModal();
                     // this.fetchAllTasksDatas();
@@ -872,7 +872,7 @@ export default {
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ id: this.accId, taskStatus: taskStatus })
             };
-            axios.post('http://localhost:8080/api/task/setStatus', requestOptions).then(function (response) {            
+            axios.post('/api/task/setStatus', requestOptions).then(function (response) {            
                     console.log(response);
                 }).catch(function (error) {
                     console.log(error)

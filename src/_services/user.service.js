@@ -32,15 +32,15 @@ function login(email, password) {
   //     });
 
   return axios
-    .post("http://localhost:8080/api/user/authenticate", requestOptions)
-    .then(function(response) {
+    .post("/api/user/authenticate", requestOptions)
+    .then(function (response) {
       if (response.data.length > 0) {
         console.log(response);
         handleResponse;
         localStorage.setItem("user", true);
       }
     })
-    .catch(function(error) {
+    .catch(function (error) {
       console.log(error);
     });
 }
@@ -60,12 +60,12 @@ function register(user) {
 
   // return fetch(`${config.apiUrl}/users/register`, requestOptions).then(handleResponse);
   return axios
-    .post("http://localhost:8080/api/user/addUser", requestOptions)
-    .then(function(response) {
+    .post("/api/user/addUser", requestOptions)
+    .then(function (response) {
       console.log(response);
       handleResponse;
     })
-    .catch(function(error) {
+    .catch(function (error) {
       console.log(error);
     });
 }

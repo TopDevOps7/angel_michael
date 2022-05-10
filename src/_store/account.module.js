@@ -5,12 +5,12 @@ import axios from "axios";
 const user = JSON.parse(localStorage.getItem("user"));
 const state = user
   ? {
-      status: { loggedIn: true },
-      user,
-      taskDatas: [],
-      delTasks: [],
-      willEditData: []
-    }
+    status: { loggedIn: true },
+    user,
+    taskDatas: [],
+    delTasks: [],
+    willEditData: []
+  }
   : { status: {}, user: null, taskDatas: [], delTasks: [], willEditData: [] };
 
 const actions = {
@@ -61,12 +61,12 @@ const actions = {
       })
     };
     axios
-      .post("http://localhost:8080/api/task/getAllTaskDatas", requestOptions)
-      .then(function(response) {
+      .post("/api/task/getAllTaskDatas", requestOptions)
+      .then(function (response) {
         console.log(response.data);
         commit("temp", response.data);
       })
-      .catch(function(error) {
+      .catch(function (error) {
         console.log(error);
       });
   },
@@ -83,12 +83,12 @@ const actions = {
       body: JSON.stringify({ selected: state.delTasks })
     };
     axios
-      .post("http://localhost:8080/api/task/deleteTaskDatas", requestOptions)
-      .then(function(response) {
+      .post("/api/task/deleteTaskDatas", requestOptions)
+      .then(function (response) {
         commit("initialDeleteList");
         console.log("Deleted result", response.data);
       })
-      .catch(function(error) {
+      .catch(function (error) {
         console.log(error);
       });
   },
@@ -102,12 +102,12 @@ const actions = {
       })
     };
     axios
-      .post("http://localhost:8080/api/task/inputSearch", requestOptions)
-      .then(function(response) {
+      .post("/api/task/inputSearch", requestOptions)
+      .then(function (response) {
         console.log("setInputSearch", response);
         commit("temp", response.data);
       })
-      .catch(function(error) {
+      .catch(function (error) {
         console.log(error);
       });
   },
@@ -118,12 +118,12 @@ const actions = {
       body: JSON.stringify({ willEditDataId: willEditDataId })
     };
     axios
-      .post("http://localhost:8080/api/task/setWillEditData", requestOptions)
-      .then(function(response) {
+      .post("/api/task/setWillEditData", requestOptions)
+      .then(function (response) {
         console.log(response);
         commit("setWillEditData", response.data);
       })
-      .catch(function(error) {
+      .catch(function (error) {
         console.log(error);
       });
   }
@@ -136,7 +136,7 @@ const mutations = {
   initialDeleteList(state) {
     state.delTasks = [];
   },
-  delSelectedTasks(state) {},
+  delSelectedTasks(state) { },
   setDeleteTask(state, { delTasks, isDelFlag }) {
     // state.delTasks.push(delTasks);
     // if(isDelFlag) {

@@ -11,13 +11,13 @@ module.exports = {
     assetsSubDirectory: 'static',
     assetsPublicPath: '/',
     proxyTable: {
-        '/api': {
-            target: 'http://localhost:3000/',
-            changeOrigin: true,
-            pathRewirte: {
-                '^/api': '/api'
-            }
+      '/api': {
+        target: 'https://ec2-54-158-32-118.compute-1.amazonaws.com:3000/',
+        changeOrigin: true,
+        pathRewirte: {
+          '^/api': '/api'
         }
+      }
     },
 
     // Various Dev Server settings
